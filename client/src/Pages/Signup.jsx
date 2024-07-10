@@ -1,9 +1,10 @@
 import React from "react";
-
+import Questions from "./Contact";
 function Registration() {
     return(
         <div>
-            Sign up!
+            <p>Sign up!</p>
+            <Questions/> 
         </div>
     )
 };
