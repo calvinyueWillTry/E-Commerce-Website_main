@@ -13,6 +13,19 @@ const resolvers = {
   },
 
   Mutation: {
+    login: async (parent, { username, password }) => {
+        const user = await User.findOne({ username });
+        if (!user) {
+          throw AuthenticationError;
+        }
+        const correctPass = await user.isCorrectPassword(password);
+        if (!correctPass) {
+          throw AuthenticationError;
+        }
+  
+        const token = signToken(user);
+        return { token, user };
+      },
     createUser: async (parent,{ username, email, password, shippingAddress }) => {
       const user = await User.create({
         username,
@@ -24,18 +37,11 @@ const resolvers = {
 
       return { token, user };
     },
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
-      if (!user) {
-        throw AuthenticationError;
-      }
-      const correctPass = await user.isCorrectPassword(password);
-      if (!correctPass) {
-        throw AuthenticationError;
-      }
-
-      const token = signToken(user);
-      return { token, user };
+    updateUser: async (parent, {email, shippingAddress}) => {
+        // write logic
+    },
+    deleteUser: async (parent, {_id}) => {
+        // write logic
     },
     createProduct: async (parent, {productName, description, image, price, context}) => {
         const product = await Product.create({ 
@@ -53,6 +59,12 @@ const resolvers = {
             return {seller}
         };
         return { product }
+    },
+    updateProduct: async (parent, {productName, description, image, price}) => {
+        //write logic
+    },
+    deleteProduct: async (parent, {_id}) => {
+        //write logic
     }
 },
 };

@@ -35,8 +35,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+    <Outlet />
     </ApolloProvider>
   );
 }
-
+//exercise 24 for reference
 export default App;
