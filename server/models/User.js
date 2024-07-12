@@ -61,7 +61,7 @@ userSchema.virtual('productsForSale').get(function () {
     numOfListings : this.productsForSale.length,
     Listings : this.productsForSale,
   };
-  return productsForSale
+  return productsForSale;
 });
 
 const User = model('User', userSchema);
