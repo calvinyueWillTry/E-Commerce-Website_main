@@ -38,10 +38,17 @@ const resolvers = {
       return { token, user };
     },
     updateUser: async (parent, {email, shippingAddress}) => {
-        // write logic
+        const user = await User.findOneAndUpdate(
+            {_id: context.user._id},
+            {$set: {email: email, shippingAddress, shippingAddress}},
+            {new: true}
+        );
+        return user
     },
-    deleteUser: async (parent, {_id}) => {
-        // write logic
+    deleteUser: async (parent, context) => {
+        if (context.user) {
+            return User.findOneAndDelete({ _id: context.user._id})
+        }
     },
     createProduct: async (parent, {productName, description, image, price, context}) => {
         const product = await Product.create({ 
@@ -61,10 +68,20 @@ const resolvers = {
         return { product }
     },
     updateProduct: async (parent, {productName, description, image, price}) => {
-        //write logic
+        const product = await Product.findOneAndUpdate(
+            {_id: context.product._id},
+            {$set: {productName: productName, 
+                    description:description,
+                    image: image,
+                    price: price}},
+            {new: true}
+        );
+        return product
     },
-    deleteProduct: async (parent, {_id}) => {
-        //write logic
+    deleteProduct: async (parent, context) => {
+        if (context.product) {
+            return Product.findOneAndDelete({_id: context.product._id})
+        }
     }
 },
 };
