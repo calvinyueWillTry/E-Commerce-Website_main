@@ -1,36 +1,9 @@
-
-ul.fullink li:nth-child(5) {
-    padding-right: 0;
+.nav-item{
+    background-color: red;
+    border-radius: 10%;
 }
-
-ul.social_icon {
-    float: left;
-    padding-top: 0px;
-}
-
-ul.social_icon li {
-    display: inline-block;
-    margin: 0 1px;
-}
-
-ul.social_icon li a {
-    background: #343334;
-    width: 33px;
-    height: 33px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-radius: 30px;
-}
-
-ul.social_icon li a i {
-    font-size: 19px;
-    transition: ease-in all 0.5s;
-}
-
-ul.social_icon li a:hover {
-    color: #fff;
-    background: #5326d3;
-    transition: ease-in all 0.5s;
+.nav-link{
+    color:white;
+    font-size: medium;
+    
 }
