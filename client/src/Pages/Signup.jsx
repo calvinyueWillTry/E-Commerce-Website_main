@@ -9,3 +9,4 @@ function Registration() {
     )
 };
 export default Registration;
+//exported to Main

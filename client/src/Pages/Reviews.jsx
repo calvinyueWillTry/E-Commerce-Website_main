@@ -1,6 +1,5 @@
 import React from "react";
-import Blogging from "./Blog";
-
+import Blogging from "../Components/Blog";
 function Reviews() {
     return (
         <div>
@@ -9,3 +8,4 @@ function Reviews() {
     )
 };
 export default Reviews;
+//Exported to Main

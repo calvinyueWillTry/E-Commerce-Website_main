@@ -7,10 +7,11 @@ function Home() {
     return (
         <div>
             <Header/>
-            Homepage
+            
             <About/>
             <Footer/>
         </div>
     )
 };
 export default Home;
+//exported to the App

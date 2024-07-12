@@ -8,3 +8,4 @@ function Blogging() {
     )
 };
 export default Blogging;
+//exported to Reviews

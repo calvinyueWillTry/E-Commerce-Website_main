@@ -8,3 +8,4 @@ function Questions() {
     )
 };
 export default Questions;
+//exported to Main and Signup
