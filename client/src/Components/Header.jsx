@@ -5,6 +5,7 @@ import NavigationBar from "./Navbar";
 function Header() {
     return (
     <div>
+
     <NavigationBar/>
     
     <p>Header</p>
