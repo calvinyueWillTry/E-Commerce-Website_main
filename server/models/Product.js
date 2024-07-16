@@ -1,8 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const noImage = require('client\src\assets\No_Image_available.jpg');
-const userSchema = require('./User');
-
 const productSchema = new Schema(
   {
     productName: {
@@ -15,13 +12,14 @@ const productSchema = new Schema(
     },
     image: {
       type: String,
-      default: noImage,
     },
     price: {
-      type: Decimal128,
+      type: Number,
       required: true,
     },
-    seller: [userSchema],
+    seller: {
+      type: String,
+    },
   },
   {
     toJSON: {
@@ -29,11 +27,7 @@ const productSchema = new Schema(
     },
   }
 );
-
-productSchema.virtual('seller').get(function () {
-  return this.seller.username;
-});
-
 const Product = model('Product', productSchema);
 
-module.exports = Product;
+module.exports = productSchema
+module.exports = Product
