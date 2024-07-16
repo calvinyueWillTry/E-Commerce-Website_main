@@ -4,10 +4,10 @@ import Login from "../Components/Login";
 function Users() {
     return (
         <div>
-            <Registration/>
+            
             <p>Already a user?</p>
             <Login/>
         </div>
     )
-};
+};//needs a card
 export default Users;
