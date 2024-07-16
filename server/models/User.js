@@ -29,7 +29,7 @@ const userSchema = new Schema(
       unique: true,
     },
 
-    productsForSale: [productSchema],
+    productsForSale: [],
   },
   // set this to use virtual below
   {
@@ -56,13 +56,13 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 // Returns a field with the products this user has for sale
 //  /// THIS NEEDS WORK ////
-userSchema.virtual('productsForSale').get(function () {
-  const productsForSale = {
-    numOfListings : this.productsForSale.length,
-    Listings : this.productsForSale,
-  };
-  return productsForSale;
-});
+// userSchema.virtual('productsForSale').get(function () {
+//   const productsForSale = {
+//     numOfListings : this.productsForSale.length,
+//     Listings : this.productsForSale,
+//   };
+//   return productsForSale;
+// });
 
 const User = Model('User', userSchema);
 
