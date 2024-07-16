@@ -1,5 +1,5 @@
 const { User } = require("../models/User");
-const {Product} = require("../models/Product")
+const {Product} = require("../models/Product");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
