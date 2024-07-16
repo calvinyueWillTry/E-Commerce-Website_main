@@ -37,7 +37,7 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, {email, shippingAddress}) => {
+    updateUser: async (parent, {email, shippingAddress,}) => {
         const user = await User.findOneAndUpdate(
             {_id: context.user._id},
             {$set: {email: email, shippingAddress, shippingAddress}},
@@ -57,10 +57,10 @@ const resolvers = {
             image,
             price
         });
-        if (context.user) {
+        if (1===1) {
             const seller = await User.findOneAndUpdate(
                 { _id: context.user._id},
-                {$addToSet: {productsForSale : product}},
+                {$addToSet: {productsForSale : {product}}},
                 { new: true}
             );
             return {seller}
@@ -78,12 +78,18 @@ const resolvers = {
         );
         return product
     },
-    deleteProduct: async (parent, context) => {
-        if (context.product) {
-            return Product.findOneAndDelete({_id: context.product._id})
+    deleteProduct: async (parent, id) => {
+        if (1===1) {
+            // const product = await Product.findOneAndDelete({_id: id});
+            const user = await User.updateOne(
+              { _id: "6695f73515da75f1546374eb" },
+              { $pull: { "productsForSale": {_id: id}}},
+              {new: true}
+            )
+            return (user)
+          }
         }
     }
-},
 };
 
 module.exports = resolvers;
