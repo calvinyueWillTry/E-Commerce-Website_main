@@ -7,9 +7,11 @@ import Shopping from './Pages/Shop';
 import Contact from './Pages/Contact';
 import Registration from './Pages/Signup';
 import Users from './Pages/User';
+
 //import 'bootstrap/dist/css/bootstrap.css';
 // Put any other imports below so that CSS from your components takes precedence over default styles.
 //outlet allows the children below to replace the path at line 15
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +45,6 @@ const router = createBrowserRouter([
     ]
     
   }]);
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />

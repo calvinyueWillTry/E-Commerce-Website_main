@@ -1,6 +1,6 @@
 // Model That defines our user model
 
-const { Schema, model } = require('mongoose');
+const { Schema, Model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from product
@@ -64,6 +64,6 @@ userSchema.virtual('productsForSale').get(function () {
   return productsForSale;
 });
 
-const User = model('User', userSchema);
+const User = Model('User', userSchema);
 
 module.exports = User;

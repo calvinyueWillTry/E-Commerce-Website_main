@@ -36,7 +36,7 @@ const typeDefs = `
     productName: String!
     description: String!
     image: String
-    price: Decimal128!
+    price: int!
     seller: User!
   }
 
@@ -45,7 +45,7 @@ const typeDefs = `
     productName: String!
     description: String!
     image: String
-    price: Decimal128!
+    price: int!
   }
 
   input DeleteProduct {
@@ -59,12 +59,12 @@ const typeDefs = `
 
 type Query {
   current: User
-  users: [User!]!
-  user(id:ID!): User!
-  UserByUsername(username: String!): User!
-  products: [Product!]!
-  product(id: ID!): Product!
-  productByName(productName: String!): Product!
+  users: [User]!
+  user(id:ID): User
+  UserByUsername(username: String]: User
+  products: [Product]
+  product(id: ID): Product
+  productByName(productName: String): Product
   }
 
 type Mutation {
