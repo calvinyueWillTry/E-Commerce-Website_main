@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import "../public/CSS/style.css"
-//need to import css
+import Navbar from "./Navbar";
+//import "../public/CSS/style.css"
 
 function Nav () {
     return (
+       <nav>
         <div className="offcanvas-body">
               <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <div>
@@ -45,9 +46,10 @@ function Nav () {
                 </div>
 
                 </div>
-                
               </ul>
             </div>
+        </nav> 
+
     )
 };
 export default Nav;

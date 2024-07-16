@@ -4,17 +4,19 @@ import App from './App';
 import Home from './Pages/Homepage';
 import Reviews from './Pages/Reviews';
 import Shopping from './Pages/Shop';
-import Questions from './Pages/Contact';
+import Contact from './Pages/Contact';
 import Registration from './Pages/Signup';
 import Users from './Pages/User';
-
+//import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your components takes precedence over default styles.
+//outlet allows the children below to replace the path at line 15
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />, 
 
     children: [
-      {
+      { 
         index: true,
         element:<Home/>
       },
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Questions/>
+        element: <Contact/>
       },
       {
         path: "/signup",
