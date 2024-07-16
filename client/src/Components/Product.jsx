@@ -1,14 +1,15 @@
 import React from "react";
-import firstItem from "../public/images/insta-item1.jpg"
-import Carousel from "./Carousel"; // automatically goes to /index.jsx
+import CarouselTheProducts from "./Carousel/indexProduct"; // automatically goes to /index.jsx
+import "../public/CSS/style.css"
+import WatchesRow from "./Carousel/indexProRow";
 
 function Products() {
     return (
-        <div>
-            <Carousel/>
-            
-            <img className="img_responsive" src={firstItem} alt="item" />
-        </div>
+    <div className="products" >
+        <CarouselTheProducts/>
+        <p></p>
+        <WatchesRow/>
+    </div>
     )
 };
 export default Products;

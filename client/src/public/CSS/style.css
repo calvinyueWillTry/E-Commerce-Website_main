@@ -1,36 +1,82 @@
 
-ul.fullink li:nth-child(5) {
-    padding-right: 0;
+*{
+    box-sizing: 0;
+    margin: 0%;
 }
-
-ul.social_icon {
-    float: left;
-    padding-top: 0px;
+.products{
+    background-color: black;
 }
-
-ul.social_icon li {
-    display: inline-block;
-    margin: 0 1px;
+nav{
+    background-color:aqua;
+    width: 100%;
 }
+.nav-item{
 
-ul.social_icon li a {
-    background: #343334;
-    width: 33px;
-    height: 33px;
+    border-radius: 10%;
     display: flex;
+}
+.nav-link{
+    color:white;
+    font-size:small;
+    
+}
+.nav-btn{
+    padding: 0 1%;
+    box-sizing: border-box;
+    cursor: pointer;
+    background: transparent;
+    visibility: hidden;
+    opacity: 0;
+}
+.header {
+    
     align-items: center;
-    justify-content: center;
-    color: #fff;
-    border-radius: 30px;
 }
+.nav-item:hover{
+    font-weight: 200;
+}
+.hamburger-menu{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    
+}
+.hamburger-bar{
+    background-color:greenyellow;
+    justify-content: space-between;
+}
+.hidden{
+    display: none;
+}
+.hamburger-bar.clicked:nth-child(1) {
+    transform: rotate(45deg);
+}
+.hamburger-bar.unclicked {
+    transform: rotate(0deg)
+}
+.watches-row {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+}
+.social_icon{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 10px;
+}
+@media screen and (max-width: 1024px){
+    .nav-btn{
+        visibility: visible;
+        opacity: 1;
+    }
+    .nav{
+        height:fit-content;
+        max-width: fit-content;
+        display:flex;
+    }
+    .nav-responsive{
+        transform:none;
 
-ul.social_icon li a i {
-    font-size: 19px;
-    transition: ease-in all 0.5s;
-}
 
-ul.social_icon li a:hover {
-    color: #fff;
-    background: #5326d3;
-    transition: ease-in all 0.5s;
-}
+    }
