@@ -3,6 +3,7 @@ const typeDefs = `
     _id: ID!
     username: String!
     email: String!
+    password: String!
     shippingAddress: String!
     productsForSale: [Product]
   }
@@ -10,6 +11,7 @@ const typeDefs = `
   input CreateUser {
     username: String!
     email: String!
+    password: String!
     shippingAddress: String!
   }
   
@@ -25,19 +27,21 @@ const typeDefs = `
   }
 
   type Product {
+    _id: ID!
     productName: String!
     description: String!
     image: String
-    price: Decimal128!
-    seller: User!
+    price: Int!
+    seller: String!
+    user: String
   }
 
   input CreateProduct {
     productName: String!
     description: String!
     image: String
-    price: Decimal128!
-    seller: User!
+    price: Int!
+    seller: String!
   }
 
   input UpdateProduct {
@@ -45,7 +49,7 @@ const typeDefs = `
     productName: String!
     description: String!
     image: String
-    price: Decimal128!
+    price: Int!
   }
 
   input DeleteProduct {
@@ -68,13 +72,13 @@ type Query {
   }
 
 type Mutation {
-  login(email: String!, password: String!): Auth
-  createUser(newUser:CreateUser!):User
-  updateUser(updatedUser:UpdateUser!):User
+  login(username: String!, password: String!): Auth
+  createUser(username: String!, email: String!, password: String!, shippingAddress: String!): Auth
+  updateUser(_id: ID!, email: String, shippingAddress: String): User
   deleteUser(delUser:DeleteUser!):User
-  createProduct(newProduct:CreateProduct!):Product
-  updateProduct(updatedProduct:UpdateProduct!):Product
-  deleteProduct(delProduct:DeleteProduct!):Product
+  createProduct(productName: String!, description: String!, image: String, price: Int!, seller: String!):Product
+  updateProduct(_id: ID!, productName: String, description: String, image: String, price: Int):Product
+  deleteProduct(_id: ID!): Product
 }
 `;
 
