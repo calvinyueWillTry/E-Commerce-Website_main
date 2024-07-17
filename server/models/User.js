@@ -28,7 +28,6 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-
     productsForSale: [{
       type: Schema.Types.ObjectId,
       ref: "Product"
@@ -39,6 +38,7 @@ const userSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
+  id: false,
   }
 );
 
@@ -56,16 +56,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
-// Returns a field with the products this user has for sale
-//  /// THIS NEEDS WORK ////
-// userSchema.virtual('productsForSale').get(function () {
-//   const productsForSale = {
-//     numOfListings : this.productsForSale.length,
-//     Listings : this.productsForSale,
-//   };
-//   return productsForSale;
-// });
 
 const User = model('User', userSchema);
 

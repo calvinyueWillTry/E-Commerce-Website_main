@@ -11,7 +11,12 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-  },
+  
+  
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id)
+      }
+    },
 
   Mutation: {
     login: async (parent, { username, password }) => {

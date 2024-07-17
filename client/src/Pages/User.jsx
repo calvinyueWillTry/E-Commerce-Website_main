@@ -4,8 +4,6 @@ import Login from "../Components/Login";
 function Users() {
     return (
         <div>
-            
-            <p>Already a user?</p>
             <Login/>
         </div>
     )

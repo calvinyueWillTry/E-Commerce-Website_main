@@ -8,7 +8,7 @@ function Nav () {
     return (
        <nav>
         <div className="offcanvas-body">
-              <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
+            <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <div>
                 <div className="nav-item">
                     <Link className="nav-link" to={"/"}>
