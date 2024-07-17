@@ -7,7 +7,7 @@
     background-color: black;
 }
 nav{
-    background-color:aqua;
+    background-color:rgb(49, 49, 49);
     width: 100%;
 }
 .nav-item{
@@ -28,9 +28,8 @@ nav{
     visibility: hidden;
     opacity: 0;
 }
-.header {
-    
-    align-items: center;
+header {
+    display: flex;
 }
 .nav-item:hover{
     font-weight: 200;

@@ -45,7 +45,7 @@ const resolvers = {
     },
     updateUser: async (parent, {email, shippingAddress}, context) => {
         const user = await User.findOneAndUpdate(
-            {_id: context.user._id},
+            {_id: context.user.id},
             {$set: {email: email, shippingAddress, shippingAddress}},
             {new: true}
         );
@@ -57,7 +57,8 @@ const resolvers = {
         }
     },
     createProduct: async (parent, {productName, description, image, price}, context) => {
-            const username = context.user.username;
+            const username = context.user.id;
+            console.log(username);
             const product = await Product.create({ 
             productName,
             description,
