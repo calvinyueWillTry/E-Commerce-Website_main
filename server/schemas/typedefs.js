@@ -76,7 +76,7 @@ type Mutation {
   createUser(username: String!, email: String!, password: String!, shippingAddress: String!): Auth
   updateUser(_id: ID!, email: String, shippingAddress: String): User
   deleteUser(delUser:DeleteUser!):User
-  createProduct(productName: String!, description: String!, image: String, price: Int!, seller: String!):Product
+  createProduct(productName: String!, description: String!, image: String, price: Int!):Product
   updateProduct(_id: ID!, productName: String, description: String, image: String, price: Int):Product
   deleteProduct(_id: ID!): Product
 }
