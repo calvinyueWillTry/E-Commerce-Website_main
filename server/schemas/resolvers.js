@@ -1,6 +1,7 @@
 const  User  = require("../models/User");
 const Product = require("../models/Product");
 const { signToken, AuthenticationError } = require("../utils/auth");
+const { default: context } = require("react-bootstrap/esm/AccordionContext");
 
 const resolvers = {
   Query: {
@@ -37,7 +38,7 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, {email, shippingAddress,}) => {
+    updateUser: async (parent, {email, shippingAddress}, context) => {
         const user = await User.findOneAndUpdate(
             {_id: context.user._id},
             {$set: {email: email, shippingAddress, shippingAddress}},
@@ -50,24 +51,26 @@ const resolvers = {
             return User.findOneAndDelete({ _id: context.user._id})
         }
     },
-    createProduct: async (parent, {productName, description, image, price, context}) => {
-        const product = await Product.create({ 
+    createProduct: async (parent, {productName, description, image, price}, context) => {
+            const username = context.user.username;
+            const product = await Product.create({ 
             productName,
             description,
             image,
-            price
+            price,
+            username
         });
-        if (1===1) {
-            const seller = await User.findOneAndUpdate(
+        if (context.user) {
+            const sell = await User.findOneAndUpdate(
                 { _id: context.user._id},
-                {$addToSet: {productsForSale : {product}}},
+                {$push: {productsForSale :  product._id}},
                 { new: true}
             );
-            return {seller}
+            return {sell}
         };
         return { product }
     },
-    updateProduct: async (parent, {productName, description, image, price}) => {
+    updateProduct: async (parent, {productName, description, image, price}, context) => {
         const product = await Product.findOneAndUpdate(
             {_id: context.product._id},
             {$set: {productName: productName, 
@@ -78,15 +81,15 @@ const resolvers = {
         );
         return product
     },
-    deleteProduct: async (parent, id) => {
-        if (1===1) {
-            // const product = await Product.findOneAndDelete({_id: id});
-            const user = await User.updateOne(
-              { _id: "6695f73515da75f1546374eb" },
-              { $pull: { "productsForSale": {_id: id}}},
+    deleteProduct: async (parent, {_id}, context) => {
+        if (context.user) {
+            const product = await Product.findOneAndDelete(_id);
+            const user = await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { "productsForSale": _id}},
               {new: true}
             )
-            return (user)
+            return (`Product: ${product._id} for user ${user._id} deleted`)
           }
         }
     }

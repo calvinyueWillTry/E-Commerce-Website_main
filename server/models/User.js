@@ -29,7 +29,10 @@ const userSchema = new Schema(
       unique: true,
     },
 
-    productsForSale: [],
+    productsForSale: [{
+      type: Schema.Types.ObjectId,
+      ref: "Product"
+    }],
   },
   // set this to use virtual below
   {
