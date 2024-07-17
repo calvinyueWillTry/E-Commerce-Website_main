@@ -1,15 +1,11 @@
 import React from "react";
 
-import NavigationBar from "./Navbar";
+import Nav from "./Navbar";
 
 function Header() {
     return (
     <div>
-
-    <NavigationBar/>
-    
-    <p>Header</p>
-
+    <Nav />
     </div>
     ) 
 };
