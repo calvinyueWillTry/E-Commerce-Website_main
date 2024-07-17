@@ -70,16 +70,16 @@ const resolvers = {
         };
         return { product }
     },
-    updateProduct: async (parent, {productName, description, image, price}, context) => {
-        const product = await Product.findOneAndUpdate(
-            {_id: context.product._id},
+    updateProduct: async (parent, {productName, description, image, price}) => {
+        const productUpdate = await Product.findOneAndUpdate(
+            {_id: product._id},
             {$set: {productName: productName, 
                     description:description,
                     image: image,
                     price: price}},
             {new: true}
         );
-        return product
+        return productUpdate
     },
     deleteProduct: async (parent, {_id}, context) => {
         if (context.user) {
@@ -89,7 +89,7 @@ const resolvers = {
               { $pull: { "productsForSale": _id}},
               {new: true}
             )
-            return (`Product: ${product._id} for user ${user._id} deleted`)
+            return (user)
           }
         }
     }
