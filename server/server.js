@@ -38,8 +38,6 @@ const startApolloServer = async () => {
     context: authMiddleware
   }));
 
-  
-  //////////////////////////////////////////////////////////////
 
   app.get("/", async (req, res) => {
     res.send("Success!!!!!!");
@@ -47,51 +45,7 @@ const startApolloServer = async () => {
 
 
 
-  //////////////////////////////////////////////////////////////
 
-// const multer = require("multer");
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "../src/images/");
-//   },
-//   filename: function (req, file, cb) {
-//     // const uniqueSuffix = Date.now();
-//     //cb(null, uniqueSuffix + file.originalname);
-//     cb(null,file.originalname);
-//   },
-// });
-
-// const upload = multer({ storage: storage });
-
-// //app.post("/upload-image", upload.single("image"), async (req, res) => {
-//   app.post("/upload-image", async (req, res) => {
-//   console.log("req is here", req)
-//   console.log("req.file is here", req.file)
-//   console.log("this console log here", req.file.filename)
-//   console.log(req.body);
-//   const imageName = req.file.filename;
-
-//   try {
-//     await Images.create({ image: imageName });
-//     res.json({ status: "ok" });
-//   } catch (error) {
-//     res.json({ status: error });
-//   }
-// });
-
-// app.get("/get-image", async (req, res) => {
-//   console.log()
-//   try {
-//     Images.find({}).then((data) => {
-//       res.send({ status: "ok", data: data });
-//     });
-//   } catch (error) {
-//     res.json({ status: error });
-//   }
-// });
-
-  //////////////////////////////////////////////////////////////
 
 const multer = require("multer");
 
@@ -110,7 +64,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 // Create the uploads directory if it doesn't exist
 const fs = require('fs');
-const dir = './uploads';
 const directory = '../client/public/images'
 if (!fs.existsSync(directory)){
     fs.mkdirSync(directory);
@@ -147,7 +100,7 @@ app.get("/get-image", async (req, res) => {
 
 
   
-  //////////////////////////////////////////////////////////////
+
 
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
