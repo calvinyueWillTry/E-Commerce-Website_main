@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-mutation login($username: String!, $password: String!) {
+mutation login($username: String, $password: String) {
   login(username: $username, password: $password) {
     token
     user {
@@ -13,7 +13,7 @@ mutation login($username: String!, $password: String!) {
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $shippingAdress: String!) {
+  mutation addUser($username: String, $email: String, $password: String, $shippingAdress: String) {
     addUser(username: $username, email: $email, password: $password, shippingAdress: $shippingAdress) {
       token
       user {
@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($userId: ID!, $username: String!, $email: String!, $shippingAddress: String!) {
-    updateUser(userId: ID!, username: $username, email: $email, shippingAddress: $shippingAddress) {
+  mutation updateUser($userId: ID, $username: String, $email: String, $shippingAddress: String) {
+    updateUser(userId: ID, username: $username, email: $email, shippingAddress: $shippingAddress) {
       user {
         _id
         username
@@ -36,7 +36,7 @@ export const UPDATE_USER = gql`
 `;
 
 export const DELETE_USER = gql`
-  mutation deleteUser($userId: ID!){
+  mutation deleteUser($userId: ID){
     deleteUser(userId: $userId){
       user {
         _id
@@ -46,7 +46,7 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation addProduct($productName: String!, $description: String!, $image: String!, $price: Int!, $seller: String!) {
+  mutation addProduct($productName: String, $description: String, $image: String, $price: Int, $seller: String) {
     addProduct(productname: $productname, description: $decription, image: $image, price: $price, seller: $seller) {
       product {
         productName
@@ -60,7 +60,7 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const UPDATE_PRODUCT = gql`
-  mutation addProduct($productName: String!, $description: String!, $image: String!, $price: Int!, $seller: String!) {
+  mutation addProduct($productName: String, $description: String, $image: String, $price: Int, $seller: String) {
     addProduct(productname: $productname, description: $decription, image: $image, price: $price, seller: $seller) {
       product {
         productName
@@ -74,7 +74,7 @@ export const UPDATE_PRODUCT = gql`
 `;
 
 export const DELETE_PRODUCTS = gql`
-  mutation deleteProduct($productId: ID!){
+  mutation deleteProduct($productId: ID){
     deleteProduct(productId: $productId){
       product {
         _id

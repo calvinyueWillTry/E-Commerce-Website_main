@@ -65,18 +65,18 @@ type Query {
   current: User
   users: [User]!
   user(id:ID): User
-  UserByUsername(username: String]: User
+  UserByUsername(username: String): User!
   products: [Product]
-  product(id: ID): Product
+  product(_id: ID!): Product
   productByName(productName: String): Product
   }
 
 type Mutation {
-  login(username: String!, password: String!): Auth
+  login(username: String, password: String): Auth
   createUser(username: String!, email: String!, password: String!, shippingAddress: String!): Auth
   updateUser(_id: ID!, email: String, shippingAddress: String): User
-  deleteUser(delUser:DeleteUser!):User
-  createProduct(productName: String!, description: String!, image: String, price: Int!, seller: String!):Product
+  deleteUser(delUser: DeleteUser!):User
+  createProduct(productName: String!, description: String!, image: String, price: Int!, seller: String!, userId: ID!):Product
   updateProduct(_id: ID!, productName: String, description: String, image: String, price: Int):Product
   deleteProduct(_id: ID!): Product
 }

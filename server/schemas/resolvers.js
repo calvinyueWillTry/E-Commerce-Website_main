@@ -10,7 +10,12 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-  },
+  
+  
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id)
+      }
+    },
 
   Mutation: {
     login: async (parent, { username, password }) => {
@@ -50,18 +55,20 @@ const resolvers = {
             return User.findOneAndDelete({ _id: context.user._id})
         }
     },
-    createProduct: async (parent, {productName, description, image, price, context}) => {
-        const product = await Product.create({ 
+    createProduct: async (parent, {productName, description, image, price, context, seller, userId}) => {
+        const product = await Product.create({
             productName,
             description,
             image,
-            price
+            price,
+            seller,
+            userId,
         });
         if (1===1) {
             const seller = await User.findOneAndUpdate(
-                { _id: context.user._id},
-                {$addToSet: {productsForSale : {product}}},
-                { new: true}
+                { _id: userId},
+                {$push: { productsForSale : product._id } },
+                { new: true }
             );
             return {seller}
         };
@@ -78,12 +85,12 @@ const resolvers = {
         );
         return product
     },
-    deleteProduct: async (parent, id) => {
+    deleteProduct: async (parent, { _id } ) => {
         if (1===1) {
-            // const product = await Product.findOneAndDelete({_id: id});
-            const user = await User.updateOne(
-              { _id: "6695f73515da75f1546374eb" },
-              { $pull: { "productsForSale": {_id: id}}},
+            const product = await Product.findOneAndDelete(_id);
+            const user = await User.findOneAndUpdate(
+              { productsForSale: _id },
+              { $pull: { productsForSale: [ _id ] } },
               {new: true}
             )
             return (user)
