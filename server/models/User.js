@@ -28,12 +28,10 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    productsForSale: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Product",
-      },
-    ],
+    productsForSale: [{
+      type: Schema.Types.ObjectId,
+      ref: "Product"
+    }],
   },
   // set this to use virtual below
   {

@@ -1,6 +1,7 @@
 const  User  = require("../models/User");
 const Product = require("../models/Product");
 const { signToken, AuthenticationError } = require("../utils/auth");
+// const { default: context } = require("react-bootstrap/esm/AccordionContext");
 
 const resolvers = {
   Query: {
@@ -42,7 +43,7 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUser: async (parent, {email, shippingAddress,}) => {
+    updateUser: async (parent, {email, shippingAddress}, context) => {
         const user = await User.findOneAndUpdate(
             {_id: context.user._id},
             {$set: {email: email, shippingAddress, shippingAddress}},
@@ -55,42 +56,42 @@ const resolvers = {
             return User.findOneAndDelete({ _id: context.user._id})
         }
     },
-    createProduct: async (parent, {productName, description, image, price, context, seller, userId}) => {
-        const product = await Product.create({
+    createProduct: async (parent, {productName, description, image, price}, context) => {
+            const username = context.user.username;
+            const product = await Product.create({ 
             productName,
             description,
             image,
             price,
-            seller,
-            userId,
+            username
         });
-        if (1===1) {
-            const seller = await User.findOneAndUpdate(
-                { _id: userId},
-                {$push: { productsForSale : product._id } },
-                { new: true }
+        if (context.user) {
+            const sell = await User.findOneAndUpdate(
+                { _id: context.user._id},
+                {$push: {productsForSale :  product._id}},
+                { new: true}
             );
-            return {seller}
+            return {sell}
         };
         return { product }
     },
     updateProduct: async (parent, {productName, description, image, price}) => {
-        const product = await Product.findOneAndUpdate(
-            {_id: context.product._id},
+        const productUpdate = await Product.findOneAndUpdate(
+            {_id: product._id},
             {$set: {productName: productName, 
                     description:description,
                     image: image,
                     price: price}},
             {new: true}
         );
-        return product
+        return productUpdate
     },
-    deleteProduct: async (parent, { _id } ) => {
-        if (1===1) {
+    deleteProduct: async (parent, {_id}, context) => {
+        if (context.user) {
             const product = await Product.findOneAndDelete(_id);
             const user = await User.findOneAndUpdate(
-              { productsForSale: _id },
-              { $pull: { productsForSale: [ _id ] } },
+              { _id: context.user._id },
+              { $pull: { "productsForSale": _id}},
               {new: true}
             )
             return (user)
