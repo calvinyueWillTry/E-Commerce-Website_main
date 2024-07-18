@@ -12,7 +12,6 @@ import Login from './Pages/Login';
 import Account from './Pages/Account';
 
 // import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
 
 // Put any other imports below so that CSS from your components takes precedence over default styles.
 //outlet allows the children below to replace the path at line 15

@@ -60,7 +60,7 @@ const upload = multer({ storage });
 // Create the uploads directory if it doesn't exist
 const directory = '../client/public/images'
 if (!fs.existsSync(directory)){
-    fs.mkdirSync(directory, {recursive: true});
+    fs.mkdirSync(directory, {recursive:true});
 }
 // Endpoint to handle image upload
 app.post('/upload-image', upload.single('image'), async (req, res) => {
