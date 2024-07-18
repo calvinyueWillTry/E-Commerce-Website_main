@@ -40,12 +40,6 @@ const startApolloServer = async () => {
   }));
 
 
-  app.get("/", async (req, res) => {
-    res.send("Success!!!!!!");
-  });
-
-
-
 
 
 const multer = require("multer");
