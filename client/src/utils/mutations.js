@@ -46,22 +46,19 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation addProduct($productName: String, $description: String, $image: String, $price: Int, $seller: String) {
-    addProduct(productname: $productname, description: $decription, image: $image, price: $price, seller: $seller) {
-      product {
-        productName
-        description
-        image
-        price
-        seller
-      }
-    }
+mutation createProduct($productName: String!, $description: String!, $price: String!, $image: String) {
+  createProduct(productName: $productName, description: $description, price: $price, image: $image) {
+    image
+    price
+    description
+    productName
   }
+}
 `;
 
 export const UPDATE_PRODUCT = gql`
   mutation addProduct($productName: String, $description: String, $image: String, $price: Int, $seller: String) {
-    addProduct(productname: $productname, description: $decription, image: $image, price: $price, seller: $seller) {
+    addProduct(productName: $productName, description: $description, image: $image, price: $price, seller: $seller) {
       product {
         productName
         description
