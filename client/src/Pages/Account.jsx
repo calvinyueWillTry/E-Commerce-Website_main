@@ -123,7 +123,7 @@ function Account() {
         : allImage.map((data) => {
             return (
               <img
-                src={(`./images/${data.image}`)}
+                src={(`/images/${data.image}`)}
                 height={1000}
                 width={1000}
               />
