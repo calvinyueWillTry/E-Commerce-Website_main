@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-function createProduct() {
+function CreateProduct() {
   const [image, setImage] = useState(null);
   const [allImage, setAllImage] = useState(null);
 
@@ -41,22 +41,12 @@ function createProduct() {
   return (
     <div>
       <form onSubmit={submitImage}>
-        <input type="file" accept="image/*" onChange={onInputChange}></input>
+        <input type="file" accept="image/*" onChange={onInputChange} className = "form-control"
+              name="image"
+              id="image"></input>
         <button type="submit">Submit</button>
       </form>
-      {allImage == null
-        ? ""
-        : allImage.map((data, index) => {
-            return (
-              <img
-                key={index}
-                src={`./images/${data.image}`}
-                height={100}
-                width={100}
-              />
-            );
-          })}
     </div>
   );
 }
-export default createProduct;
+export default CreateProduct;

@@ -56,7 +56,6 @@ export const QUERY_PRODUCTS = gql`
       description
       image
       price
-      seller
     }
   }
 `;

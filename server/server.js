@@ -6,6 +6,7 @@ const { authMiddleware } = require('./utils/auth');
 var bodyParser = require('body-parser');
 const cors = require("cors");
 const mongoose = require("mongoose");
+const fs = require('fs')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -48,13 +49,12 @@ const storage = multer.diskStorage({
     cb(null, '../client/public/images/'); // Folder to save uploaded images
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`); // Name the file with timestamp
+    cb(null, `${file.originalname}`); // Name the file with timestamp
   },
 });
 // Create the multer instance
 const upload = multer({ storage });
 // Create the uploads directory if it doesn't exist
-const fs = require('fs');
 const directory = '../client/public/images'
 if (!fs.existsSync(directory)){
     fs.mkdirSync(directory, {recursive:true});

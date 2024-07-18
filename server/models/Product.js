@@ -15,12 +15,8 @@ const productSchema = new Schema(
       data: Buffer
     },
     price: {
-      type: Number,
-      required: true,
-    },
-    seller: {
       type: String,
-      required: true
+      required: true,
     },
   },
   {
