@@ -1,5 +1,5 @@
 import React from "react";
-import "../../public/CSS/style.css"
+// import "../../public/CSS/style.css"
 
 import ProductAccordianTemplate from "../Accordian/Accordian.Products";
 

@@ -39,9 +39,6 @@ const startApolloServer = async () => {
     context: authMiddleware
   }));
 
-
-
-
 const multer = require("multer");
 
 // Set up storage configuration for multer

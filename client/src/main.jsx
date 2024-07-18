@@ -6,7 +6,8 @@ import Reviews from './Pages/Reviews';
 import Shopping from './Pages/Shop';
 import Contact from './Pages/Contact';
 import Registration from './Pages/Signup';
-//import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import Login from './Pages/Login';
 import Account from './Pages/Account';
