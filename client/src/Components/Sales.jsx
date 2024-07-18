@@ -15,7 +15,7 @@ function Sales() {
               <div className="swiper-slide">
                 <div className="product-card position-relative">
                   <div className="image-holder col-md-6">
-                    <img src="/src/public/images/insta-item1.jpg" alt="product-item" className="img-fluid"/>
+                    <img src="/images/insta-item1.jpg" alt="product-item" className="img-fluid"/>
                     <SalesAccordianTemplate header={"iPhone 7"} oldPrice={"$1000"} discount={"50% off!!"} newPrice={"Now only $500!"} />
                   </div>
                   <div className="cart-concern position-absolute">
@@ -34,7 +34,7 @@ function Sales() {
               <div className="swiper-slide">
                 <div className="product-card position-relative">
                   <div className="image-holder col-md-6">
-                    <img src="/src/public/images/insta-item2.jpg" alt="product-item" className="img-fluid"/>
+                    <img src="/images/insta-item2.jpg" alt="product-item" className="img-fluid"/>
                     <p className="item-price text-primary">$6,000</p>{/**needs slash */}
                     <p>90% off!</p>
                     <p className="item-price text-primary">Now only $600!</p>
@@ -55,7 +55,7 @@ function Sales() {
               <div className="swiper-slide">
                 <div className="product-card position-relative">
                   <div className="image-holder col-md-6">
-                    <img src="/src/public/images/product-item8.jpg" alt="product-item" className="img-fluid"/>
+                    <img src="/images/product-item8.jpg" alt="product-item" className="img-fluid"/>
                     <p className="item-price text-primary">Originally $7500</p>{/**slash */}
                     <p>Now 95% off!</p>
                     <p className="item-price text-primary">Now $375!</p>
@@ -76,7 +76,7 @@ function Sales() {
               <div className="swiper-slide">
                 <div className="product-card position-relative">
                   <div className="image-holder">
-                    <img src="/src/public/images/product-item9.jpg" alt="product-item" className="img-fluid"/>
+                    <img src="/images/product-item9.jpg" alt="product-item" className="img-fluid"/>
                     <p></p>
                   </div>
                   <div className="cart-concern position-absolute">
@@ -96,7 +96,7 @@ function Sales() {
               <div className="swiper-slide">
                 <div className="product-card position-relative">
                   <div className="image-holder">
-                    <img src="/src/public/images/product-item10.jpg" alt="product-item" className="img-fluid"/>
+                    <img src="/images/product-item10.jpg" alt="product-item" className="img-fluid"/>
                   </div>
                   <div className="cart-concern position-absolute">
                     <div className="cart-button d-flex">

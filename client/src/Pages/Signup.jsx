@@ -71,7 +71,7 @@ function signUp(props) {
           <div className="mb-3">
             <label className="form-label" htmlFor="password">Password:</label>
             <input className = "form-control"
-              placeholder="Your Username"
+              placeholder="Password"
               name="password"
               type="password"
               id="password"
