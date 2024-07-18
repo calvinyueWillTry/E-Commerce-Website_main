@@ -5,6 +5,7 @@ export const QUERY_CURRENT = gql`
     current {
     _id
     username
+    email
     shippingAddress
     productsForSale {
       productName

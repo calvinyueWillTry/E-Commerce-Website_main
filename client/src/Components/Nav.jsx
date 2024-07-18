@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 
 function Nav () {
     return (
-       <nav>
+        <nav>
         <div className="offcanvas-body">
             <ul id="navbar" className="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <div>
@@ -36,7 +36,7 @@ function Nav () {
 
                 <div className="nav-item">
                     <Link className="nav-link" to={"/user"}>
-                        <h1> User Login </h1>
+                        <h1> Login </h1>
                     </Link>
                 </div>
 

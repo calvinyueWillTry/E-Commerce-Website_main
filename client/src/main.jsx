@@ -6,9 +6,15 @@ import Reviews from './Pages/Reviews';
 import Shopping from './Pages/Shop';
 import Contact from './Pages/Contact';
 import Registration from './Pages/Signup';
-import Users from './Pages/User';
-
+import Create from './Components/createProduct'
 //import 'bootstrap/dist/css/bootstrap.css';
+
+import Login from './Pages/Login';
+import Account from './Pages/Account';
+
+// import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
+
 // Put any other imports below so that CSS from your components takes precedence over default styles.
 //outlet allows the children below to replace the path at line 15
 
@@ -39,8 +45,16 @@ const router = createBrowserRouter([
         element: <Registration />
       },
       {
-        path: "/user",
-        element: <Users />
+        path: "/create",
+        element: <Create />
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/account",
+        element: <Account />
       }
     ]
     
