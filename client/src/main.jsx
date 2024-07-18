@@ -6,7 +6,6 @@ import Reviews from './Pages/Reviews';
 import Shopping from './Pages/Shop';
 import Contact from './Pages/Contact';
 import Registration from './Pages/Signup';
-import Create from './Components/createProduct'
 //import 'bootstrap/dist/css/bootstrap.css';
 
 import Login from './Pages/Login';
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Registration />
-      },
-      {
-        path: "/create",
-        element: <Create />
       },
       {
         path: "/login",

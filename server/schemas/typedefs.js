@@ -31,7 +31,7 @@ const typeDefs = `
     productName: String!
     description: String!
     image: String
-    price: Int!
+    price: String!
     seller: String!
     user: String
   }
@@ -66,7 +66,7 @@ type Query {
   users: [User]!
   user(id:ID): User
   UserByUsername(username: String): User!
-  products: [Product]
+  products: [Product]!
   product(_id: ID!): Product
   productByName(productName: String): Product
   }
@@ -76,7 +76,7 @@ type Mutation {
   createUser(username: String!, email: String!, password: String!, shippingAddress: String!): Auth
   updateUser(_id: ID!, email: String, shippingAddress: String): User
   deleteUser(delUser:DeleteUser!):User
-  createProduct(productName: String!, description: String!, image: String, price: Int!):Product
+  createProduct(productName: String!, description: String!, image: String, price: String!):Product
   updateProduct(_id: ID!, productName: String, description: String, image: String, price: Int):Product
   deleteProduct(_id: ID!): Product
 }
