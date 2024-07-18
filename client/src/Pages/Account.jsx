@@ -6,6 +6,7 @@ import axios from "axios";
 import Auth from "../utils/auth";
 
 function Account() {
+  
   const [image, setImage] = useState(null);
   const [allImage, setAllImage] = useState(null);
   useEffect(() => {
@@ -32,7 +33,7 @@ function Account() {
     const formData = new FormData();
     formData.append("image", image);
     const result = await axios.post(
-      "http://localhost:3001/upload-image",
+      "https://e-commerce-website-oryj.onrender.com/upload-image",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -59,7 +60,7 @@ function Account() {
   };
 
   const getImage = async () => {
-    const result = await axios.get("http://localhost:3001/get-image");
+    const result = await axios.get("https://e-commerce-website-oryj.onrender.com/get-image");
     console.log("image data", result.data.data);
     setAllImage(result.data.data);
   };
