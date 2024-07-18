@@ -1,6 +1,6 @@
 import React from "react";
 import CarouselTheProducts from "./Carousel/indexProduct"; // automatically goes to /index.jsx
-import "../public/CSS/style.css"
+// import "../public/CSS/style.css"
 import WatchesRow from "./Carousel/indexProRow";
 
 function Products() {

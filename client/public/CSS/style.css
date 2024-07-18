@@ -3,6 +3,9 @@
     box-sizing: 0;
     margin: 0%;
 }
+body {
+    background-color: rgb(63, 63, 63);
+}
 .products{
     background-color: black;
 }
