@@ -1,6 +1,6 @@
 # E-Commerce-Website
 A Full-Stack MERN E-Commerce application
-This Web Application serves as a portfolio and Resume. It utilizes React /  Vite
+
 
 * [Usage](#Usage)
 * 
@@ -16,6 +16,7 @@ This Web Application serves as a portfolio and Resume. It utilizes React /  Vite
 
 [Navigate to the website here.](https://austin-marlatt-portfolio.netlify.app/Portfolio)
 @@ -30,3 +34,11 @@ Check out the other projects I have worked on at [Austin-Marlatt](https://github
+This Web Application serves as a portfolio and Resume. It utilizes React /  Vite, as well as react-bootstrap components, to be able to render a page to upload items (including pictures, price, and title/description) to sell, and purchase other items already there.
  
  ## License
 
