@@ -1,0 +1,25 @@
+.container-fluid{
+    background-color: aquamarine;
+    width: fit-content;
+
+}
+.sale-text{
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bolder;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.sales{
+    display: flex;
+    flex-wrap: wrap;
+}
+.title-text{
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold; 
+}

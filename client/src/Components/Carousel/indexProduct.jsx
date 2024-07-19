@@ -1,10 +1,10 @@
 import Carousel from 'react-bootstrap/Carousel';
-
 import ProductAccordianTemplate from '../Accordian/Accordian.Products';
+import ProductItemization from '../../Pages/Process.Products.jsx/DynamicProducts';
 
-function CarouselTheProducts() {
+function CarouselTheProducts() { //insert map function to the carousels 
   return (
-    <Carousel>
+    <Carousel interval={null} >
       <Carousel.Item>
        <img src='/src/public/images/product-item1.jpg' />
         <Carousel.Caption>

@@ -1,4 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
+//import ReviewFormat from './reviewForm';
+import DropdownProductReview from '../Accord.Modal';
 
 function ProductAccordianTemplate(props) {
   return (
@@ -11,9 +13,11 @@ function ProductAccordianTemplate(props) {
           
         </Accordion.Body>
       </Accordion.Item>
-      
+      <Accordion.Item>
+        <DropdownProductReview/>
+      </Accordion.Item>
     </Accordion>
-  );//add to line 11 {props.price}?
+  );
 };
 
 export default ProductAccordianTemplate;

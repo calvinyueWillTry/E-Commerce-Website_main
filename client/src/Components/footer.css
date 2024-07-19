@@ -1,0 +1,6 @@
+.row{
+    flex-wrap: wrap;
+}
+.social_icon{
+    align-items: center;
+}

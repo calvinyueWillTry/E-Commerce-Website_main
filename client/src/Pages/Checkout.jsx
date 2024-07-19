@@ -8,7 +8,11 @@ function Checkout() {
             buying product
             <Sales/>
             on sale
+            <form onSubmit={submitImage}>
+            <input type="file" accept="image/*" onChange={onInputChange}></input>
+             <button type="submit">Submit</button>
+            </form>
         </div>
-    )
+    ) //form from Kyler
 };
 export default Checkout;

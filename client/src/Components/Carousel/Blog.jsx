@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import "../Components/Carousel/Carousel.css"
+import "../Carousel/Carousel.css"
 
 function Blogging() {
   const [index, setIndex] = useState(0);
@@ -11,7 +11,7 @@ function Blogging() {
 
   return (
     <div className="review-carousel">
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel interval={null} activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img src="/src/public/images/insta-item1.jpg"/>
         <Carousel.Caption>
